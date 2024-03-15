@@ -83,6 +83,14 @@ namespace REA_OOP
         {
             return new Money(a.Rubles, a.Kopeks - b);
         }
+        public static Money operator +(int a, Money b)
+        {
+            return new Money(b.Rubles, a + b.Kopeks);
+        }
+        public static Money operator -(int a, Money b)
+        {
+            return new Money(b.Rubles, a - b.Kopeks);
+        }
 
         public static Money operator +(Money a, Money b)
         {
@@ -110,7 +118,6 @@ namespace REA_OOP
         {
             return (double)a.Kopeks / 100;
         }
-            
 
     }
 }

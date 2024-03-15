@@ -1,14 +1,13 @@
 ﻿using REA_OOP;
 
 // See https://aka.ms/new-console-template for more information
-Console.WriteLine("PRz-11 Bazhin Dmitrii");
+Console.WriteLine("PRz-11 Bazhin Dmitrii, Variant 2");
 
 Money a1 = new Money();
 Money a2 = new Money(123, 206);
 Money a3 = new Money(123, 123);
 Money a4 = new Money(11);
 Money a5 = new Money(0, 2);
-Console.WriteLine("Object count: " + Money.Counter);
 Console.WriteLine("a2 = " + a2.ToString());
 a2 = a2 + (-10);
 Console.WriteLine("a2 = " + a2.ToString());
@@ -44,9 +43,18 @@ a2.Rubles = 10;
 a2.Rubles = 10;
 Console.WriteLine("a1 = " + a1.ToString());
 Console.WriteLine("a2 = " + a2.ToString());
-Money a6 = a1 + a2;
+Console.WriteLine("a1+a2 = " + (a1 + a2).ToString());
+Console.WriteLine("a2+a1 = " + (a2 + a1).ToString());
+Console.WriteLine("a1-a2 = " + (a1 - a2).ToString());
+Console.WriteLine("a2-a1 = " + (a2 - a1).ToString());
+Console.WriteLine("a1-10 = " + (a1 - 10).ToString());
+Console.WriteLine("a1+10 = " + (a1 + 10).ToString());
+Money a6 = new Money(0, 7);
 Console.WriteLine("a6 = " + a6.ToString());
-Money a7 = a1 - a2;
-Console.WriteLine("a7 = " + a7.ToString());
-Console.WriteLine((int)a1);
-Console.WriteLine((double)a1);
+Console.WriteLine("10+a6 = " + (10 + a6).ToString());
+Console.WriteLine("10-a6 = " + (10 - a6).ToString());
+Console.WriteLine("5-a6 = " + (5 - a6).ToString());
+Console.WriteLine("123+a6 = " + (123 + a6).ToString());
+Console.WriteLine("(int)a1 = " + (int)a1);
+Console.WriteLine("(double)a1 = " + (double)a1);
+Console.WriteLine("Object count: " + Money.Counter);
