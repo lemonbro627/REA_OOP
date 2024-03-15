@@ -14,23 +14,22 @@ namespace REA_OOP
         private int _kopeks;
         private static int _counter;
 
-        public Money(int rubles, int kopeks)
+        public static int Counter => _counter;
+
+        public Money()
         {
-            this.Rubles = rubles;
-            this.Kopeks = kopeks;
             _counter++;
         }
 
-        public Money(int rubles)
+        public Money(int rubles) : this()
         {
-            new Money(rubles, 0);
-        }
-        public Money()
-        {
-            new Money(0, 0);
+            this.Rubles = rubles;
         }
 
-        public static int Counter => _counter;
+        public Money(int rubles, int kopeks) : this(rubles)
+        {
+            this.Kopeks = kopeks;
+        }
 
         public int Rubles
         {
@@ -52,22 +51,66 @@ namespace REA_OOP
                 if ((value >= 0) && (value <= 99))
                 {
                     _kopeks = value;
-                } else
+                } 
+                else if (value >= 100)
                 {
-                    _rubles += value / 100;
+                    this.Rubles = this.Rubles + value / 100;
                     _kopeks = value % 100;
+                } 
+                else if (this.Rubles > 0)
+                {
+                    this.Rubles = this.Rubles - 1;
+                    _kopeks = _kopeks + 100 + value;
+                }
+                else
+                {
+                    _rubles = 0;
+                    _kopeks = 0;
                 }
             }
         }
 
         public override string ToString()
         {
-            return "Rubles: " + Rubles + ", Kopeks: " + Kopeks;
+            return "Rubles: " + this.Rubles + ", Kopeks: " + this.Kopeks;
         }
 
         public static Money operator +(Money a, int b)
         {
             return new Money(a.Rubles, a.Kopeks + b);
         }
+        public static Money operator -(Money a, int b)
+        {
+            return new Money(a.Rubles, a.Kopeks - b);
+        }
+
+        public static Money operator +(Money a, Money b)
+        {
+            return new Money(a.Rubles + b.Rubles, a.Kopeks + b.Kopeks);
+        }
+        public static Money operator -(Money a, Money b)
+        {
+            return new Money(a.Rubles - b.Rubles, a.Kopeks - b.Kopeks);
+        }
+
+        public static Money operator ++(Money a)
+        {
+            return new Money(a.Rubles, a.Kopeks + 1);
+        }
+        public static Money operator --(Money a)
+        {
+            return new Money(a.Rubles, a.Kopeks - 1);
+        }
+
+        public static explicit operator int(Money a)
+        { 
+            return a.Rubles;
+        }
+        public static explicit operator double(Money a)
+        {
+            return (double)a.Kopeks / 100;
+        }
+            
+
     }
 }
