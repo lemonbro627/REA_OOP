@@ -19,6 +19,8 @@ namespace REA_OOP
         public Money()
         {
             _counter++;
+            this.Rubles = 0;
+            this.Kopeks = 0;
         }
 
         public Money(int rubles) : this()

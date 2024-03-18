@@ -1,4 +1,5 @@
 ﻿using REA_OOP;
+using System.Linq.Expressions;
 
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("PRz-11 Bazhin Dmitrii, Variant 2");
@@ -58,3 +59,23 @@ Console.WriteLine("123+a6 = " + (123 + a6).ToString());
 Console.WriteLine("(int)a1 = " + (int)a1);
 Console.WriteLine("(double)a1 = " + (double)a1);
 Console.WriteLine("Object count: " + Money.Counter);
+
+Console.WriteLine("Array testing");
+MoneyArray ma1 = new MoneyArray();
+Console.WriteLine("ma1.Length = " + ma1.Lenght);
+Console.Write("Введите длину массива, в котором значения будут сгенерированы случайным образом: ");
+MoneyArray ma2 = new MoneyArray(Convert.ToInt32(Console.ReadLine()), random:true);
+Console.WriteLine("ma2.Length = " + ma2.Lenght);
+for (int i = 0;  i < ma2.Lenght; i++)
+{
+    Console.WriteLine("Elem " + i + ": " + ma2[i]);
+}
+Console.WriteLine("Min in ma2: " + ma2.Min());
+Console.Write("Введите длину массива, в котором значения будут вводится руками: ");
+MoneyArray ma3 = new MoneyArray(Convert.ToInt32(Console.ReadLine()), random:false);
+Console.WriteLine("ma3.Length = " + ma3.Lenght);
+for (int i = 0; i < ma3.Lenght; i++)
+{
+    Console.WriteLine("Elem " + i + ": " + ma3[i]);
+}
+Console.WriteLine("Min in ma3: " + ma3.Min());
