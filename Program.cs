@@ -79,3 +79,9 @@ for (int i = 0; i < ma3.Lenght; i++)
     Console.WriteLine("Elem " + i + ": " + ma3[i]);
 }
 Console.WriteLine("Min in ma3: " + ma3.Min());
+Console.WriteLine("ma3[0] = ma3[1] + ma3[2]");
+ma3[0] = ma3[1] + ma3[2];
+for (int i = 0; i < ma3.Lenght; i++)
+{
+    Console.WriteLine("Elem " + i + ": " + ma3[i]);
+}
