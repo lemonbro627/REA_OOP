@@ -2,6 +2,7 @@
 using System.Linq.Expressions;
 
 // See https://aka.ms/new-console-template for more information
+// additional line for test gpg sign from laptop
 Console.WriteLine("PRz-11 Bazhin Dmitrii, Variant 2");
 
 Money a1 = new Money();
